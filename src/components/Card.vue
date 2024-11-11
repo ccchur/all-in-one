@@ -2,8 +2,7 @@
   <div class="card">
     <div class="card-header">
       <a-avatar :size="88" class="avatar">
-        <img alt="avatar"
-          :src="props.userInfo!.avatar" />
+        <img alt="avatar" :src="props.userInfo!.avatar" />
       </a-avatar>
       <h2 class="username">@{{ props.userInfo!.name }}</h2>
       <p class="bio">{{ props.userInfo!.description }}</p>
@@ -11,11 +10,14 @@
     <div class="card-body">
       <div class="link-list" v-for="item in props.userInfo!.link">
         <a href="#" class="link-item">
-          <img class="link-icon" alt="link-icon"
-            :src="item.icon" />
+          <!-- <img class="link-icon" alt="link-icon"
+            :src="item.icon" /> -->
+          <span class="link-icon">
+            {{ item.name }}
+          </span>
           <div class="content">
-            <span class="link-title">{{ item.text }}</span>
-            <icon-right class="arrow-icon"/>
+            <span class="link-title">{{ item.url }}</span>
+            <icon-right class="arrow-icon" />
           </div>
         </a>
       </div>
