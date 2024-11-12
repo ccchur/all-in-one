@@ -10,8 +10,8 @@
     <div class="card-body">
       <div class="link-list" v-for="item in props.userInfo!.link">
         <a href="#" class="link-item">
-          <!-- <img class="link-icon" alt="link-icon"
-            :src="item.icon" /> -->
+          <img v-if="item.icon" class="link-icon" alt="link-icon"
+            :src="item.icon" />
           <span class="link-icon">
             {{ item.name }}
           </span>
@@ -22,9 +22,9 @@
         </a>
       </div>
     </div>
-    <div class="card-footer">
+    <!-- <div class="card-footer">
       <p class="footer-text">© 2024 张三的链接树 | Made with ❤️</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -35,7 +35,8 @@ import { defineProps } from 'vue';
 interface LinkItem {
   id: number;
   icon: string;
-  text: string;
+  name: string;
+  description: string;
   link: string;
 }
 
@@ -45,8 +46,8 @@ const props = defineProps({
   }
 })
 
+console.log("头像地址", props.userInfo!.avatar)
 
-console.log('🟢🟢🟢',props);
 </script>
 <style scoped>
   .card {
@@ -132,9 +133,10 @@ console.log('🟢🟢🟢',props);
   }
 
   .link-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 5px;
     border-radius: 6px;
   }
 

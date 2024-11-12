@@ -23,6 +23,7 @@ export interface UserInfo {
 	}[];
 }
 
+
 const userInfo = ref<UserInfo>({
 	avatar: "https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp",
 	name: "示例数据",
@@ -38,8 +39,7 @@ const userInfo = ref<UserInfo>({
 })
 
 const update = (e:UserInfo) => {
-	console.log("first", e);
-	userInfo.value = Object.assign({},e)
+	userInfo.value = JSON.parse(JSON.stringify(e));
 }
 
 </script>
